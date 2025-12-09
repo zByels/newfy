@@ -92,7 +92,7 @@ ptw -- -vv --emoji
 git init
 git config --global user.name zByels
 git config --global user.email gabrielforti11@gmail.com
-echo ".venv" | ac .gitignore
+echo ".venv" | sc .gitignore
 git add .
 git commit -m "newfy primeiro"
 

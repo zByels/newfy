@@ -1,18 +1,28 @@
+
 from django.db import models
 from django.contrib.auth.models import User
 
 
 # Create your models here.
 
+class Album(models.Model):
+    capa = models.ImageField(upload_to="posts/", blank=True, null=True)
+    nome = models.CharField()
+    ano = models.IntegerField()
+
+
 
 class Musica(models.Model):
     titulo = models.CharField()
-    album = models.CharField()
-    capa = models.ImageField(upload_to="posts/", blank=True, null=True)
-    ano = models.IntegerField()
     duracao = models.TimeField()
     artistas = models.ManyToManyField(
         to=User, through="Compositores", through_fields=("Musica", "Artista"), related_name="musicas"
+    )
+
+    Album = models.ForeignKey(
+        to=Album,
+        on_delete=models.SET_NULL,
+        null=True,
     )
 
     def __str__(self):
@@ -32,3 +42,4 @@ class Compositores(models.Model):
         on_delete=models.SET_NULL,
         null=True,
     )
+
