@@ -1,0 +1,13 @@
+{% extends 'mestre.html' %}
+
+{% block conteudo %}
+<a href="{% url 'postar' %}"><button id="criar">Criar Post</button></a>
+  {% for post in posts %}
+    <div id="ler" class="post">
+      <div class="titulo">{{ post.titulo }}</div>
+      <div class="imagem"><img src="/media/{{ post.imagem }}" alt=""></div>
+      <div class="album">{{ post.album }}</div>
+    </div>
+  {% endfor %}
+{% endblock %}
+

@@ -1,0 +1,43 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Display;
+}
+
+#enviar {
+    text-decoration: none;
+    font-family: Playfair Display;
+    color: white;
+    background-color:#0a476b;
+    border-radius: 5px;
+    gap: 20px;
+}
+
+#criar {
+    text-decoration: none;
+    font-family: Playfair Display;
+    color: white;
+    background-color:#6485a0;
+    border-radius: 5px;
+    gap: 20px;
+    width: 80px;
+    height: 25px;
+}
+
+
+#nav {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    border-radius: 2px;
+    transition: 0.5s all;
+}
+
+#ler {
+    text-decoration: none;
+    color: white;
+    background-color:#6485a0;
+    padding: 5px;
+    border-radius: 2px;
+    width: 200px;
+}
