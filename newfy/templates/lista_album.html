@@ -1,0 +1,21 @@
+{% extends 'mestre.html' %}
+
+{% block conteudo %}
+<a href="{% url 'postar' %}"><button id="criar">Criar Álbum</button></a>
+  {% for post in posts %}
+    <div id="ler" class="post">
+      Titulo:<div class="titulo">{{ post.nome }}</div>
+      <div class="imagem"><img src="/media/{{ post.capa }}" alt=""></div>
+      Ano:<div class="album">{{ post.ano }}</div>
+      <div>
+        <a href="{% url 'editar' post.id %}"><button id="edit">Editar</button></a>
+      </div>
+      <div>
+        <form method="post" action="{% url "delalbum" post.id %}">
+{% csrf_token %}
+          <button id="edit">Deletar</button>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}
+

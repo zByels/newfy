@@ -10,6 +10,9 @@ class Album(models.Model):
     nome = models.CharField()
     ano = models.IntegerField()
 
+    def __str__(self):
+        return self.nome
+
 
 
 class Musica(models.Model):
@@ -19,7 +22,7 @@ class Musica(models.Model):
         to=User, through="Compositores", through_fields=("Musica", "Artista"), related_name="musicas"
     )
 
-    Album = models.ForeignKey(
+    album = models.ForeignKey(
         to=Album,
         on_delete=models.SET_NULL,
         null=True,

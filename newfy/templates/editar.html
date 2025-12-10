@@ -1,4 +1,4 @@
-{% extends "album.html" %}
+{% extends "mestre.html" %}
 
 {% block conteudo %}
 {% load crispy_forms_tags %}
@@ -6,9 +6,13 @@
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form | crispy }}
-  <button id="enviar" type="submit">Enviar</button>
+  
+  {% for formset in inlines %}
+    {{ formset }}
+  {% endfor %}
+  <button id="enviar" type="submit">Atualizar</button>
 </form>
-
+  
 {% if form.errors %}
   <div style="color: red;">
     <h4>Erros encontrados:</h4>

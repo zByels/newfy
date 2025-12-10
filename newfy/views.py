@@ -1,8 +1,14 @@
 from django.shortcuts import redirect, render
 from newfy import models
-from .forms import PostForm
+from .forms import AlbumForm, PostForm, BookFormSet
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+from .forms import PostForm
+from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def signup(request):
     if request.method == 'POST':
@@ -16,6 +22,46 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
+class ListarAlbum(ListView):
+    model = models.Album
+    template_name = 'lista_album.html'
+    context_object_name = 'posts'
+
+
+
+class MusicaInline(InlineFormSetFactory):
+    model = models.Musica
+    fields = ['titulo']
+
+class CriaAlbum(LoginRequiredMixin, CreateWithInlinesView):
+    model = models.Album
+    template_name = 'album.html'
+    fields=['capa', 'nome', 'ano']
+    success_url = reverse_lazy('lista_posts')
+
+class CriaMusica(LoginRequiredMixin, CreateView):
+    model = models.Musica
+    template_name = 'postar.html'
+    fields=['titulo', 'duracao', 'artistas', 'album']
+    success_url = reverse_lazy('lista_posts')
+
+class Editar(LoginRequiredMixin, UpdateWithInlinesView):
+    model = models.Album
+    template_name = 'editar.html'
+    inlines = [MusicaInline,]
+    fields=['capa', 'nome', 'ano']
+    success_url = reverse_lazy('lista_posts')
+
+class DelAlbum(LoginRequiredMixin, DeleteView):
+    model = models.Album
+    success_url = reverse_lazy('lista_posts')
+
+class DelMusica(LoginRequiredMixin, DeleteView):
+    model = models.Musica
+    success_url = reverse_lazy('lista_posts')
+    
+
+@login_required(login_url='/contas/login')
 def postar_view(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)

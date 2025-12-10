@@ -3,18 +3,28 @@ from . import models
 from django.contrib.auth.models import User
 
 
-
-class ArtistasMusicas(admin.StackedInline):
-    model = models.User.musicas.through
+@admin.register(models.Musica)
+class AdminMusica(admin.ModelAdmin):
+    model = models.Musica
     extra = 0
 
+    class ArtistaInline(admin.TabularInline):
+        model = models.Musica.artistas.through
+        extra = 0
+    
+    inlines = [ArtistaInline,]
 
-class MusicasAdmin(admin.ModelAdmin):
-    list_display = ('titulo', )
-    inlines = (ArtistasMusicas,)
 
+@admin.register(models.Album)
+class AlbumMusica(admin.ModelAdmin):
+    model = models.Album
+    extra = 0
 
+    class MusicaInline(admin.TabularInline):
+        model = models.Musica
+        extra = 0
+    
+    inlines = [MusicaInline,]
 
-admin.site.register(models.Musica, MusicasAdmin)
 
 # Register your models here.

@@ -1,4 +1,4 @@
-{% extends "album.html" %}
+{% extends "mestre.html" %}
 
 {% block conteudo %}
 {% load crispy_forms_tags %}
@@ -8,7 +8,7 @@
   {{ form | crispy }}
   <button id="enviar" type="submit">Enviar</button>
 </form>
-
+  
 {% if form.errors %}
   <div style="color: red;">
     <h4>Erros encontrados:</h4>

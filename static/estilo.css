@@ -12,6 +12,9 @@ body {
     border-radius: 5px;
     gap: 20px;
 }
+#enviar:hover {
+    background-color: #6485a0 !important;
+}
 
 #criar {
     text-decoration: none;
@@ -19,10 +22,15 @@ body {
     color: white;
     background-color:#6485a0;
     border-radius: 5px;
-    gap: 20px;
-    width: 80px;
-    height: 25px;
+    width: 120px;
+    height: 30px;
+    margin-bottom: 20px;
+    border: none;
 }
+#criar:hover {
+    background-color: #0a476b !important;
+}
+
 
 
 #nav {
@@ -45,7 +53,7 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: rgb(212, 0, 255);
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -55,10 +63,13 @@ nav a {
     text-decoration: none;
     padding: 5px;
     margin: 0 10px;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    height: fit-content;
 }
 
 nav a:hover {
-    background-color: rgb(224, 104, 248);
+    background-color: #81abe0;
 }
 
 #conteudo {
@@ -82,4 +93,89 @@ nav a:hover {
 .card > .img > img {
     max-width: 100%;
     max-height: 150px;
+}
+
+#div_id_capa {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+#div_id_nome {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+#div_id_ano {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+#logout {
+    color: rgb(255, 255, 255) !important;
+    transition: all 0.6s;
+    text-decoration: none;
+    padding: 5px !important;
+    margin-right:  15px !important;
+    border: #3473a7 solid 1px !important;
+    border-radius: 5px;
+    
+}
+
+#logout:hover {
+    background-color: #81abe0 !important;
+}
+
+#div_id_titulo {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+#div_id_duracao {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+
+
+#div_id_artistas {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+#div_id_album {
+    background-color:#6485a0;
+    border: #3473a7 solid 1px;
+    border-radius: 5px;
+    font-family: Playfair Display;
+}
+
+#edit {
+    text-decoration: none;
+    font-family: Playfair Display;
+    color: white;
+    background-color:#3473a7;
+    border-radius: 5px;
+    height: fit-content;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: none;
+}
+#edit:hover {
+    background-color: #b4d5f0 !important;
+}
+
+#ler {
+    border-radius: 5px;
 }
