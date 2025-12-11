@@ -2,7 +2,7 @@
 
 {% block conteudo %}
 {% load crispy_forms_tags %}
-<h2>Formulário de Postagem</h2>
+<h2>Postagem de Música</h2>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
   {{ form | crispy }}
@@ -14,6 +14,7 @@
     <h4>Erros encontrados:</h4>
     {{ form.errors }}
   </div>
+  
 {% endif %}
 {% endblock conteudo %}
 

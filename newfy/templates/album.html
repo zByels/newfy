@@ -1,19 +1,25 @@
 {% extends "mestre.html" %}
 
-{% block conteudo %}
 {% load crispy_forms_tags %}
-<h2>Formulário de Postagem</h2>
+
+{% block conteudo %}
+<h2>Postagem de Álbum</h2>
 <form method="post" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form | crispy }}
+  {{ form|crispy }}
   <button id="enviar" type="submit">Enviar</button>
 </form>
-  
+
 {% if form.errors %}
   <div style="color: red;">
     <h4>Erros encontrados:</h4>
     {{ form.errors }}
   </div>
 {% endif %}
-{% endblock conteudo %}
 
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+{% endblock conteudo %}   

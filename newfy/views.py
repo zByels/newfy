@@ -4,9 +4,10 @@ from .forms import AlbumForm, PostForm, BookFormSet
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy
 from .forms import PostForm
+from django.contrib import messages
 from extra_views import CreateWithInlinesView, UpdateWithInlinesView, InlineFormSetFactory
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -36,8 +37,15 @@ class MusicaInline(InlineFormSetFactory):
 class CriaAlbum(LoginRequiredMixin, CreateWithInlinesView):
     model = models.Album
     template_name = 'album.html'
-    fields=['capa', 'nome', 'ano']
+    fields = ['capa', 'nome', 'ano']
     success_url = reverse_lazy('lista_posts')
+    permission_denied_message = 'Por favor, entre ou crie uma conta'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.add_message(request, messages.WARNING, self.permission_denied_message)
+            return self.handle_no_permission()
+        return super().dispatch(request, *args, **kwargs)   
 
 class CriaMusica(LoginRequiredMixin, CreateView):
     model = models.Musica
