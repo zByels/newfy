@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-f78aq_xyrzw)@^9nl2d59=0qfdgzn67s7j!2%7*cti=2rxzkwg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://newfy-rqp1.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0.0.0.0', 'https://newfy-rqp1.onrender.com']
 
 
 # Application definition
