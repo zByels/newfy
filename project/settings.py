@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'extra_views',
     'uvicorn',
+    'APP',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
