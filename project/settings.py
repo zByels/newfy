@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-f78aq_xyrzw)@^9nl2d59=0qfdgzn67s7j!2%7*cti=2rxzkwg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://newfy-rqp1.onrender.com']
 
 
 # Application definition
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'extra_views',
+    'uvicorn',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
